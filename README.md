@@ -63,7 +63,8 @@ Name: NAT-3-tier
 - Public access – no 
 - A.Z. – no preference 
 - Create database 
-- Edit security group -> Add 3306 port 
+- Edit security group -> Add 3306 port
+
 
 ### $\color{blue}{ Connect \ To \ Nginx-Server-Public }$
 - connect to instance
@@ -80,6 +81,59 @@ Name: NAT-3-tier
   vim 3-tier-key.pem
   ````
 - copy private key and paste it here
+ 
+### $\color{blue}{Now \ SSH \ into \ Database \ Server }$
+
+````
+sudo -i
+````
+````
+yum install mariadb105-server -y
+````
+````
+systemctl start mariadb
+````
+````
+systemctl enable mariadb
+````
+### $\color{blue}{Log \ in \ into \ database}$
+
+````
+mysql -h rds-endpoint   -u admin -pPasswd123$
+````
+Note: replace rds-endpoint with actual endpoint value
+Important Commands:
+````
+show databases;
+````
+````
+create database  studentapp;
+````
+````
+use studentapp;
+````
+
+### $\color{blue}{Run \ this \ query \ to \ create \ table:}$
+````
+ CREATE TABLE if not exists students(student_id INT NOT NULL AUTO_INCREMENT,  
+	student_name VARCHAR(100) NOT NULL,  
+	student_addr VARCHAR(100) NOT NULL,   
+	student_age VARCHAR(3) NOT NULL,      
+	student_qual VARCHAR(20) NOT NULL,     
+	student_percent VARCHAR(10) NOT NULL,   
+	student_year_passed VARCHAR(10) NOT NULL,  
+	PRIMARY KEY (student_id)  
+);
+````
+````
+show tables;
+````
+Logout from database:
+````
+exit
+````
+- back to nginx-server-public
+  
 ### $\color{blue}{Now \ SSH \ into \ Tomcat \ Server }$
 - ssh -i 3-tier-key.pem  ec2-user@ip-of-tomcat-vm
 ````
@@ -112,126 +166,30 @@ curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
 ````
 yum install elinks -y
 ````
-Allow Ports security group: 
-22 = SSH 
-8080 = Tomcat 
-3306 = Mysql / Mariadb
-
-![instance](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/d7851745-1bfe-4f92-b7bb-18555f2dfd45)
-
-$\color{green}{Connect \ to \ instance:}$
-
-![connect](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/727778ca-e9ee-43c9-ab85-ff055f94d4a2)
-
-![cli](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/0e6244e1-489c-42c1-ae89-27c8b7c37792)
-
-- $\color{lightblue}{install \ java }$
 ````
-yum install java-1.8* -y 
+elinks
 ````
-- $\color{lightblue}{Install \ Tomcat }$
-Search tomcat 8 download  on browser
-
-![tomcat](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/8e622609-b7df-4f26-b8e3-e787e5e16c95)
-
- ````
-wget  https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.99/bin/apache-tomcat-8.5.99.zip
-
-unzip apache-tomcat-8.5.99.zip 
-cd  apache-tomcat-8.5.99.zip 
-cd bin 
-[catalina.sh  -->this file is neccessary to start tomcat] 
-chmod +x catalina.sh     [ give execute permission to file] 
-````
-### $\color{blue}{Start \ and \ Stop \ Tomcat \ using \ this \ command:}$
-````
-sh catalina.sh start   [ tomcat started ]
-sh catalina.sh stop 
-````
-go to browser and public ip:8080
-
-### $\color{blue}{SETUP \ STUDENT \ APPLICATION}$
-````
-yum install git -y 
-git clone https://github.com/abhipraydhoble/Student-App-Project.git 
-cd Student-App-Project 
-````
-$\color{lightblue}{Copy \ file \ from \ git \ directory \ to \ Tomcat}$
+- using elinks package you can see output in cli use #elinks -> paste tomcat-ip:8080/student
 
 ````
-cp Student-App-Project/student.war apache-tomcat-8.5.93/webapps/ 
-cp Student-App-Project/mysql-connector.jar apache-tomcat-8.5.93/lib/ 
+exit
 ````
-### $\color{blue}{SETUP \ DATABASE \ IN \ RDS:}$
-Go to RDS
-download mariadb-server using  below command
+- back to nginx-server
+````
+vim /etc/nginx/nginx.conf
+````
+- :set nu
+(enter below data in line 47 in between error and location)
+````
+location / {
+proxy_pass http://private-IP-tomcat:8080/student/;
+}
+````
+- :wq  ->save file
 
 ````
-dnf install mariadb105-server
-systemctl start mariadb    
-systemctl enable mariadb  
-systemctl status mariadb
+systemctl restart nginx
 ````
 
-### $\color{blue}{Log \ in \ into \ database}$
+- $\color{red}{Go \ To \ Browser \ Hit \ Public-IP \ Nginx}$
 
-````
-mysql -h rds-endpoint   -u admin -pPasswd123$
-````
-Note: replace rds-endpoint with actual endpoint value
-Important Commands:
-````
-show databases;
-create database  databasename;
-use databasename;
-show tables;
-describe tablename;
-
-  ````
-<Mariadb> Create database with name studentapp  
-<Mariadb> Create database studentapp;    
-<Mariadb> use studentapp;   --> Switch to newly created database   
-
-### $\color{blue}{Run \ this \ query \ to \ create \ table:}$
-````
- CREATE TABLE if not exists students(student_id INT NOT NULL AUTO_INCREMENT,  
-	student_name VARCHAR(100) NOT NULL,  
-	student_addr VARCHAR(100) NOT NULL,   
-	student_age VARCHAR(3) NOT NULL,      
-	student_qual VARCHAR(20) NOT NULL,     
-	student_percent VARCHAR(10) NOT NULL,   
-	student_year_passed VARCHAR(10) NOT NULL,  
-	PRIMARY KEY (student_id)  
-);
-````
-Logout from database:
-<Mariadb> exit
-
- ### $\color{blue}{ MODIFY \ context.xml:}$
-
-```
-cd apache-tomcat-8.5.93/conf
-vim context.xml
-````
-add below line [connection string] at line 21
-````
- <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
-               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
-               username="USERNAME" password="PASSWORD" driverClassName="com.mysql.jdbc.Driver"
-               url="jdbc:mysql://DB-ENDPOINT:3306/DATABASE"/>
-
-````
-* Change  
-1.Username  
-2.Password   
-3.DB-ENDPOINT  
-4.DATABASE Name 
-
-$\color{blue}{Start \ tomcat}$
-````
-cd apache-tomcat-8.5.93/bin
-./catalina.sh start or  sh catalina.sh start
-````
-
-- $\color{red}{google hit}$
-IP:8080/student
