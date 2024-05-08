@@ -1,9 +1,7 @@
 
 # $${\color{red} \textbf{Project}: \textbf{3-tier} \ \textbf{Student} \ \textbf{App}}$$
+
  
-
-
-
 ## $\color{green} \textbf{Prerequisite:}$
 - VPC 
 - Subnets
@@ -13,29 +11,29 @@
 - RDS 
 
 ### $\color{blue} \textbf{Create \textbf VPC }$
-Name: VPC-3-tier
-CIDR: 192.168.0.0/16
+- Name: VPC-3-tier
+- CIDR: 192.168.0.0/16
 
 ### $\color{blue} \textbf{Create \ Subnets}$
 1.Subnet-1
-Name: Public-Subnet-Nginx
-CIDR: 192.168.1.0/24
+- Name: Public-Subnet-Nginx
+- CIDR: 192.168.1.0/24
 
 2.Subnet-2
-Name: Private-Subnet-Tomcat
-CIDR: 192.168.2.0/24
+- Name: Private-Subnet-Tomcat
+- CIDR: 192.168.2.0/24
 
 3.Subnet-3
-Name:Private-Subnet-Database
-CIDR: 192.168.3.0/24
+- Name:Private-Subnet-Database
+- CIDR: 192.168.3.0/24
 
 ### $\color{blue} \textbf{Create \ Internet \ Gateway }$
-Name: IGW-3-tier
--attach igw to vpc
+- Name: IGW-3-tier
+- attach igw to vpc
 
 ### $\color{blue} \textbf{Create \ Nat \ Gateway }$
-Name: NAT-3-tier
--create in public subnet
+- Name: NAT-3-tier
+- create in public subnet
 
 ### $\color{blue} \textbf{Create \ Route \ Table }$
 1. RT-Public-Subnet
