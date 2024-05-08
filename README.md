@@ -47,11 +47,11 @@
 
 ### $\color{blue} \textbf{Create \ EC2 \ Instances }$
 
-![instances](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/e2080675-51d3-4101-824a-81129830187e)
-
 1. Nginx-Server-Public  ->create in public subnet ->allow port = 80,22
 2. Tomcat-Server-Private ->create in private subnet ->allow port = 8080,22
 3. Database-Server-Private ->create in private subnet ->allow port = 3306,22
+
+![instances](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/e2080675-51d3-4101-824a-81129830187e)
 
 
 ### $\color{blue} \textbf{Create \ Database \ In \ RDS  }$
