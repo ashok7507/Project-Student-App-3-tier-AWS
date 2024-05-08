@@ -16,7 +16,7 @@
 Name: VPC-3-tier
 CIDR: 192.168.0.0/16
 
-### $\color{blue}{Create \ Subnets}$
+### $\color{blue} \textbf{Create \ Subnets}$
 1.Subnet-1
 Name: Public-Subnet-Nginx
 CIDR: 192.168.1.0/24
@@ -29,15 +29,15 @@ CIDR: 192.168.2.0/24
 Name:Private-Subnet-Database
 CIDR: 192.168.3.0/24
 
-### $\color{blue}{Create \ Internet \ Gateway }$
+### $\color{blue} \textbf{Create \ Internet \ Gateway }$
 Name: IGW-3-tier
 -attach igw to vpc
 
-### $\color{blue}{Create \ Nat \ Gateway }$
+### $\color{blue} \textbf{Create \ Nat \ Gateway }$
 Name: NAT-3-tier
 -create in public subnet
 
-### $\color{blue}{Create \ Route \ Table }$
+### $\color{blue} \textbf{Create \ Route \ Table }$
 1. RT-Public-Subnet
    - add public subnet
    - add igw
@@ -45,13 +45,13 @@ Name: NAT-3-tier
    - add private subnets
    - add nat
 
-### $\color{blue}{Create \ EC2 \ Instances }$
+### $\color{blue} \textbf{Create \ EC2 \ Instances }$
 1. Nginx-Server-Public  ->create in public subnet ->allow port = 80,22
 2. Tomcat-Server-Private ->create in private subnet ->allow port = 8080,22
 3. Database-Server-Private ->create in private subnet ->allow port = 3306,22
 
 
-### $\color{blue}{Create \ Database \ In \ RDS  }$
+### $\color{blue} \textbf{Create \ Database \ In \ RDS  }$
 - Go To RDS
 - Created Database
 - Standard create 
@@ -67,7 +67,7 @@ Name: NAT-3-tier
 - Edit security group -> Add 3306 port
 
 
-### $\color{blue}{ Connect \ To \ Nginx-Server-Public }$
+### $\color{blue} \textbf{ Connect \ To \ Nginx-Server-Public }$
 - connect to instance
 - change hostname
   
@@ -83,7 +83,7 @@ Name: NAT-3-tier
   ````
 - copy private key and paste it here
  
-### $\color{blue}{Now \ SSH \ into \ Database \ Server }$
+### $\color{blue} \textbf{Now \ SSH \ into \ Database \ Server }$
 
 ````
 sudo -i
@@ -97,7 +97,7 @@ systemctl start mariadb
 ````
 systemctl enable mariadb
 ````
-### $\color{blue}{Log \ in \ into \ database}$
+### $\color{blue} \textbf{Log \ in \ into \ database}$
 
 ````
 mysql -h rds-endpoint   -u admin -pPasswd123$
@@ -114,7 +114,7 @@ create database  studentapp;
 use studentapp;
 ````
 
-### $\color{blue}{Run \ this \ query \ to \ create \ table:}$
+### $\color{blue} \textbf{Run \ this \ query \ to \ create \ table:}$
 ````
  CREATE TABLE if not exists students(student_id INT NOT NULL AUTO_INCREMENT,  
 	student_name VARCHAR(100) NOT NULL,  
@@ -135,7 +135,7 @@ exit
 ````
 - back to nginx-server-public
   
-### $\color{blue}{Now \ SSH \ into \ Tomcat \ Server }$
+### $\color{blue} \textbf{Now \ SSH \ into \ Tomcat \ Server }$
 - ssh -i 3-tier-key.pem  ec2-user@ip-of-tomcat-vm
 ````
 sudo -i
@@ -192,5 +192,5 @@ proxy_pass http://private-IP-tomcat:8080/student/;
 systemctl restart nginx
 ````
 
-- $\color{red}{Go \ To \ Browser \ Hit \ Public-IP \ Nginx}$
+## $\color{red} \textbf{Go \ To \ Browser \ Hit \ Public-IP \ Nginx}$
 
