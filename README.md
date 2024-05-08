@@ -12,7 +12,7 @@
 - Internet Gateway
 - RDS 
 
-### $\color{blue}{Create \ VPC }$
+### $\color{blue} \textbf{Create \textbf VPC }$
 Name: VPC-3-tier
 CIDR: 192.168.0.0/16
 
