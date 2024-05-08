@@ -84,14 +84,32 @@ Name: NAT-3-tier
 - ssh -i 3-tier-key.pem  ec2-user@ip-of-tomcat-vm
 ````
 sudo -i
+````
+````
 yum install java -y
+````
+````
 mkdir /opt/tomcat
+````
+````
 curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.99/bin/apache-tomcat-8.5.99.tar.gz
+````
+````
 tar -xvf apache-tomcat-8.5.99.tar.gz -C /opt/tomcat
+````
+````
 cd /opt/tomcat/apache-tomcat-8.5.99/webapps
+````
+````
 curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war
+````
+````
 cd ../lib
+````
+````
 curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
+````
+````
 yum install elinks -y
 ````
 Allow Ports security group: 
