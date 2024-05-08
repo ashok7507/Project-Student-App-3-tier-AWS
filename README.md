@@ -4,7 +4,7 @@
 
 
 
-## $$\color{green} \textbf{Prerequisite:}$$
+## $\color{green} \textbf{Prerequisite:}$
 - VPC 
 - Subnets
 - Route Table 
