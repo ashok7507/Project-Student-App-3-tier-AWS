@@ -1,5 +1,6 @@
 
-# $${\color{red} Project \ -3-tier \ tudent \ App \ }$$ 
+# $${\color{red} \textbf{Project} \ -3-tier \ \textbf{Student} \ \textbf{App}}$$
+ 
 
 ### $\color{blue}{GITHUB \ REPOSITORY \ LINK:}$ 
 
