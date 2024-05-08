@@ -1,8 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@450&display=swap");
-
-pre, code, .blob-code, .blob-code-marker {
-  font-family: 'Fira Code', monospace !important;
-}
 
 # $${\color{red} Project \ -3-tier \ tudent \ App \ }$$ 
 
