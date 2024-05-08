@@ -43,7 +43,12 @@
    - add private subnets
    - add nat
 
+![vpc-flow](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/aaae3b25-2030-453e-992b-c4ae9a2291b9)
+
 ### $\color{blue} \textbf{Create \ EC2 \ Instances }$
+
+![instances](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/e2080675-51d3-4101-824a-81129830187e)
+
 1. Nginx-Server-Public  ->create in public subnet ->allow port = 80,22
 2. Tomcat-Server-Private ->create in private subnet ->allow port = 8080,22
 3. Database-Server-Private ->create in private subnet ->allow port = 3306,22
@@ -64,8 +69,12 @@
 - Create database 
 - Edit security group -> Add 3306 port
 
+![database](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/31d6e98c-986a-41ad-bbe8-0418e9beaa17)
 
 ### $\color{blue} \textbf{ Connect \ To \ Nginx-Server-Public }$
+
+![nginx-server](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/0cbb6175-9570-4ce7-a4ef-4cd7b5b24ceb)
+
 - connect to instance
 - change hostname
   
@@ -83,6 +92,8 @@
  
 ### $\color{blue} \textbf{Now \ SSH \ into \ Database \ Server }$
 
+![database-instance](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/8159a278-d612-441e-93da-d581428cdd3a)
+
 ````
 sudo -i
 ````
@@ -96,6 +107,8 @@ systemctl start mariadb
 systemctl enable mariadb
 ````
 ### $\color{blue} \textbf{Log \ in \ into \ database}$
+
+![login into database](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/ba0c082a-060f-48f9-8520-83c906337251)
 
 ````
 mysql -h rds-endpoint   -u admin -pPasswd123$
@@ -134,6 +147,9 @@ exit
 - back to nginx-server-public
   
 ### $\color{blue} \textbf{Now \ SSH \ into \ Tomcat \ Server }$
+
+![tomcat-server](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/a6cd6922-7be0-4f6b-ab56-d69423093ae5)
+
 - ssh -i 3-tier-key.pem  ec2-user@ip-of-tomcat-vm
 ````
 sudo -i
@@ -191,4 +207,6 @@ systemctl restart nginx
 ````
 
 ## $\color{red} \textbf{Go \ To \ Browser \ Hit \ Public-IP \ Nginx}$
+![nginx-output](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/b2929899-fee8-4790-8178-c870faa55124)
 
+![register-students](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/210a4bef-8fc2-4ada-9faa-ad3f8b751958)
