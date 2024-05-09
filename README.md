@@ -114,7 +114,7 @@ systemctl enable mariadb
 mysql -h rds-endpoint   -u admin -pPasswd123$
 ````
 Note: replace rds-endpoint with actual endpoint value
-Important Commands:
+
 ````
 show databases;
 ````
