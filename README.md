@@ -194,6 +194,12 @@ add below line [connection string] at line 21
 
 ````
 ````
+cd ../bin
+````
+````
+./catalina.sh start
+````
+````
 yum install elinks -y
 ````
 ````
