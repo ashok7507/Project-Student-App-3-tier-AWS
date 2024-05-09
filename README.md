@@ -179,9 +179,10 @@ cd ../lib
 curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
 ````
 ### $\color{blue} \textbf{ MODIFY \ context.xml:}$
-
-```
+````
 cd apache-tomcat-8.5.93/conf
+````
+````
 vim context.xml
 ````
 add below line [connection string] at line 21
@@ -191,6 +192,7 @@ add below line [connection string] at line 21
                username="USERNAME" password="PASSWORD" driverClassName="com.mysql.jdbc.Driver"
                url="jdbc:mysql://DB-ENDPOINT:3306/DATABASE-NAME"/>
 
+````
 ````
 yum install elinks -y
 ````
