@@ -197,6 +197,9 @@ add below line [connection string] at line 21
 cd ../bin
 ````
 ````
+chmod +x catalina.sh
+````
+````
 ./catalina.sh start
 ````
 ````
