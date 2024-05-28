@@ -1,11 +1,5 @@
 
 # $${\color{red} \textbf{Project}: \textbf{3-tier} \ \textbf{Student} \ \textbf{App}}$$
-
-# Tech Stack
-- Frontend: Angular,Nodejs
-- Backend: Java-Springboot
-- Database: Mariadb
-- Cloud:AWS:ec2,s3,cloudfront,rds,route-53,certificate manager
   
 ## $\color{green} \textbf{Prerequisite:}$
 - VPC 
