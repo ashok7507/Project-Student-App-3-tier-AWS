@@ -167,7 +167,7 @@ mkdir /opt/tomcat
 curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.99/bin/apache-tomcat-8.5.99.tar.gz
 ````
 ````
-tar -xvf apache-tomcat-8.5.99.tar.gz -C /opt/tomcat
+tar -xzvf apache-tomcat-8.5.99.tar.gz -C /opt/tomcat
 ````
 ````
 cd /opt/tomcat/apache-tomcat-8.5.99/webapps
