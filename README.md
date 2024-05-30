@@ -26,6 +26,10 @@
 - Name:Private-Subnet-Database
 - CIDR: 192.168.3.0/24
 
+4. Subnet-4
+- Name:Public-Subnet-LB
+- CIDR: 192.168.4.0/24
+  
 ### $\color{blue} \textbf{Create \ Internet \ Gateway }$
 - Name: IGW-3-tier
 - attach igw to vpc
