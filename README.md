@@ -183,7 +183,7 @@ curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
 ````
 ### $\color{blue} \textbf{ MODIFY \ context.xml:}$
 ````
-cd apache-tomcat-8.5.93/conf
+cd apache-tomcat-9.0.90.tar.gz/conf
 ````
 ````
 vim context.xml
