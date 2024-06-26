@@ -164,7 +164,7 @@ yum install java -y
 mkdir /opt/tomcat
 ````
 ````
-curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.99/bin/apache-tomcat-8.5.99.tar.gz
+curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.90/bin/apache-tomcat-9.0.90.tar.gz
 ````
 ````
 tar -xzvf apache-tomcat-8.5.99.tar.gz -C /opt/tomcat
