@@ -141,9 +141,9 @@ Logout from database:
 ````
 exit
 ````
-**$${\color{green} \textbf {Back to nginx-server}}$$**
+#### $${\color{green} \textbf {Back to nginx-server}}$$
   
-### $$\color{magenta} \textbf{Now SSH into Tomcat Server}$$
+### $${\color{magenta} \textbf{Now SSH into Tomcat Server}}$$
 
 ![tomcat-server](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/a6cd6922-7be0-4f6b-ab56-d69423093ae5)
 
