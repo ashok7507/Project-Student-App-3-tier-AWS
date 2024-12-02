@@ -196,6 +196,9 @@ add below line [connection string] at line 21
                url="jdbc:mysql://DB-ENDPOINT:3306/DATABASE-NAME"/>
 
 ````
+![image](https://github.com/user-attachments/assets/1dd0a494-6e94-4513-9164-688bd2860b48)
+
+
 ````
 cd ../bin
 ````
