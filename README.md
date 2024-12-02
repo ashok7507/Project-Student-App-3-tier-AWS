@@ -141,7 +141,7 @@ Logout from database:
 ````
 exit
 ````
-- back to nginx-server-public
+**$${\color{green} \textbf {Back to nginx-server}}$$**
   
 ### $$\color{magenta} \textbf{Now SSH into Tomcat Server}$$
 
@@ -175,7 +175,7 @@ cd ../lib
 ````
 curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
 ````
-### $\color{magenta} \textbf{ MODIFY \ context.xml:}$
+### $\color{magenta} \textbf{ MODIFY \ context.xml}$
 ````
 cd apache-tomcat-9.0.90.tar.gz/conf
 ````
@@ -213,7 +213,7 @@ elinks
 ````
 exit
 ````
-### $${\color{green} \textbf {Back to nginx-server }$$
+### $${\color{green} \textbf {Back to nginx-server}}$$
 
 ````
   sudo yum install nginx -y
