@@ -74,7 +74,7 @@
 
 ![database](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/31d6e98c-986a-41ad-bbe8-0418e9beaa17)
 
-### $\color{blue} \textbf{ Connect \ To \ Nginx-Server-Public }$
+### $$\color{green} \textbf {Connect To Nginx-Server-Public }$$
 
 ![nginx-server](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/0cbb6175-9570-4ce7-a4ef-4cd7b5b24ceb)
 
@@ -87,7 +87,7 @@
   ````
 - copy private key and paste it here
  
-### $\color{blue} \textbf{Now \ SSH \ into \ Database \ Server }$
+### $$\color{orange} \textbf {Now SSH  into Database  Server}$$
 
 ![database-instance](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/8159a278-d612-441e-93da-d581428cdd3a)
 
@@ -103,7 +103,7 @@ systemctl start mariadb
 ````
 systemctl enable mariadb
 ````
-### $\color{blue} \textbf{Log \ in \ into \ database}$
+### $\color{orange} \textbf{Log \ in \ into \ database}$
 
 ![login into database](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/ba0c082a-060f-48f9-8520-83c906337251)
 
@@ -143,7 +143,7 @@ exit
 ````
 - back to nginx-server-public
   
-### $\color{blue} \textbf{Now \ SSH \ into \ Tomcat \ Server }$
+### $$\color{magenta} \textbf{Now SSH into Tomcat Server}$$
 
 ![tomcat-server](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/a6cd6922-7be0-4f6b-ab56-d69423093ae5)
 
@@ -175,7 +175,7 @@ cd ../lib
 ````
 curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
 ````
-### $\color{blue} \textbf{ MODIFY \ context.xml:}$
+### $\color{magenta} \textbf{ MODIFY \ context.xml:}$
 ````
 cd apache-tomcat-9.0.90.tar.gz/conf
 ````
@@ -213,7 +213,7 @@ elinks
 ````
 exit
 ````
-- back to nginx-server
+### $${\color{green} \textbf {Back to nginx-server }$$
 
 ````
   sudo yum install nginx -y
