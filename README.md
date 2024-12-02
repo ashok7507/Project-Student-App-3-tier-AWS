@@ -81,12 +81,6 @@
 - connect to instance
 - change hostname
   
-  ````
-   sudo -i
-  ````
-  ````
-  yum install nginx -y
-  ````
 - create file with name 3-tier-key.pem
   ```` 
   vim 3-tier-key.pem
@@ -220,8 +214,12 @@ elinks
 exit
 ````
 - back to nginx-server
+
 ````
-vim /etc/nginx/nginx.conf
+  sudo yum install nginx -y
+````
+````
+sudo vim /etc/nginx/nginx.conf
 ````
 - :set nu
 (enter below data in line 47 in between error and location)
@@ -230,10 +228,12 @@ location / {
 proxy_pass http://private-IP-tomcat:8080/student/;
 }
 ````
+![image](https://github.com/user-attachments/assets/31feb10d-d005-4240-b629-839b8a596777)
+
 - :wq  ->save file
 
 ````
-systemctl restart nginx
+sudo systemctl start nginx
 ````
 
 ## $\color{red} \textbf{Go \ To \ Browser \ Hit \ Public-IP \ Nginx}$
