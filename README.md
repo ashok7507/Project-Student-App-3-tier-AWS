@@ -202,13 +202,7 @@ chmod +x catalina.sh
 ````
 ./catalina.sh start
 ````
-````
-yum install elinks -y
-````
-````
-elinks
-````
-- using elinks package you can see output in cli use #elinks -> paste tomcat-ip:8080/student
+
 
 ````
 exit
