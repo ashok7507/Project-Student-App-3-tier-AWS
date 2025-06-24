@@ -210,10 +210,13 @@ exit
 ### $${\color{green} \textbf {Back to nginx-server}}$$
 
 ````
-  sudo yum install nginx -y
+sudo -i
 ````
 ````
-sudo vim /etc/nginx/nginx.conf
+  yum install nginx -y
+````
+````
+ vim /etc/nginx/nginx.conf
 ````
 - :set nu
 (enter below data in line 47 in between error and location)
@@ -227,7 +230,7 @@ proxy_pass http://private-IP-tomcat:8080/student/;
 - :wq  ->save file
 
 ````
-sudo systemctl start nginx
+systemctl start nginx
 ````
 
 ## $\color{red} \textbf{Go \ To \ Browser \ Hit \ Public-IP \ Nginx}$
