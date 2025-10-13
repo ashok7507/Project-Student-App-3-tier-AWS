@@ -155,14 +155,17 @@ exit
 sudo -i
 ````
 ````
-yum install java -y
+sudo apt update
+sudo apt install default-jdk
+sudo apt install default-jre
+java -version
 ````
 
 ````
-curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.109/bin/apache-tomcat-9.0.109.tar.gz
+curl -O https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.107/bin/apache-tomcat-9.0.107.tar.gz
 ````
 ````
-tar -xzvf /apache-tomcat-9.0.109.tar.gz -C /opt/
+tar -xzvf apache-tomcat-9.0.109.tar.gz -C /opt/
 ````
 **go to webapps dir and download .war file(application)**
 ````
