@@ -160,13 +160,15 @@ sudo apt install default-jdk
 sudo apt install default-jre
 java -version
 ````
-
+```bash
+sudo apt-get install unzip -y
+```
 ````
-curl -O https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.107/bin/apache-tomcat-9.0.107.tar.gz
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.119/bin/apache-tomcat-9.0.119.zip
 ````
-````
-tar -xzvf apache-tomcat-9.0.109.tar.gz -C /opt/
-````
+```bash
+unzip apache-tomcat-9.0.119  
+``` 
 **go to webapps dir and download .war file(application)**
 ````
 cd /opt/apache-tomcat-9.0.109/webapps
