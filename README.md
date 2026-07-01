@@ -171,7 +171,7 @@ unzip apache-tomcat-9.0.119
 ``` 
 **go to webapps dir and download .war file(application)**
 ````
-cd /opt/apache-tomcat-9.0.109/webapps
+cd apache-tomcat-9.0.109/webapps
 ````
 ````
 curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war
