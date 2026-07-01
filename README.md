@@ -98,7 +98,7 @@
 sudo -i
 ````
 ````
-yum install mariadb105-server -y
+sudo apt-get install mysql-client -y
 ````
 ````
 systemctl start mariadb
@@ -111,7 +111,7 @@ systemctl enable mariadb
 ![login into database](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/ba0c082a-060f-48f9-8520-83c906337251)
 
 ````
-mysql -h rds-endpoint   -u admin -pPasswd123$
+mysql -h rds-endpoint   -u admin -p
 ````
 Note: replace rds-endpoint with actual endpoint value
 
@@ -227,7 +227,7 @@ sudo -i
 - :set nu
 (enter below data in line 47 in between error and location)
 ````
-location / {
+location /student/ {
 proxy_pass http://private-IP-tomcat:8080/student/;
 }
 ````
@@ -239,7 +239,3 @@ proxy_pass http://private-IP-tomcat:8080/student/;
 systemctl start nginx
 ````
 
-## $\color{red} \textbf{Go \ To \ Browser \ Hit \ Public-IP \ Nginx}$
-![nginx-output](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/b2929899-fee8-4790-8178-c870faa55124)
-
-![register-students](https://github.com/abhipraydhoble/Project-3-tier-Student-App/assets/122669982/210a4bef-8fc2-4ada-9faa-ad3f8b751958)
