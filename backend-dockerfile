@@ -1,27 +1,11 @@
 FROM tomcat:9.0.109-jdk8
 
-# Download the application WAR
 RUN curl -fL -o /usr/local/tomcat/webapps/student.war \
     https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war
 
-# Download MySQL connector
 RUN curl -fL -o /usr/local/tomcat/lib/mysql-connector.jar \
     https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
 
-# Add database connection configuration
-RUN sed -i '/<\/Context>/i\
-    <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" \
-        maxTotal="100" maxIdle="30" maxWaitMillis="10000" \
-        username="USERNAME" password="PASSWORD" \
-        driverClassName="com.mysql.jdbc.Driver" \
-        url="jdbc:mysql://DB-ENDPOINT:3306/DATABASE-NAME"/>' \
-    /usr/local/tomcat/conf/context.xml
-
-# Make startup script executable
-RUN chmod +x /usr/local/tomcat/bin/catalina.sh
-
-# Expose Tomcat port
 EXPOSE 8080
 
-# Start Tomcat
 CMD ["catalina.sh", "run"]
